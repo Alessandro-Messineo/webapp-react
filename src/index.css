@@ -5,3 +5,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Colore bg */
+.bg-pages{
+    background-color: #f8f8f8;
+}
