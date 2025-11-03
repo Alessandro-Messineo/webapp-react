@@ -1,0 +1,15 @@
+nav {
+  background-color: #1e1e2f; 
+  padding: 1rem 2rem;
+  display: flex; 
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* ombra leggera */
+}
+
+.container-header a {
+  color: #ffffff;             /* testo bianco */
+  font-size: 1.5rem;          /* dimensione del titolo */
+  font-weight: 600;           /* testo in grassetto */
+  text-decoration: none;      /* rimuove la sottolineatura */
+  transition: color 0.3s ease; /* effetto morbido al passaggio */
+}
