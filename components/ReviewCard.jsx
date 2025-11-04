@@ -1,12 +1,14 @@
-export default function ReviewCard() {
+export default function ReviewCard({reviewProp}) {
+
+    const { name, vote, text } = reviewProp
+
     return (
         <>
-        <div>
-            
-        </div>
             <div class="review-card">
                 <div class="review-content">
-                    <p>"Un film bellissimo, mi ha emozionato dall'inizio alla fine!"</p>
+                    <p>{vote}</p>
+                    <p>{name}</p>
+                    <p>{text}</p>
                 </div>
             </div>
         </>
