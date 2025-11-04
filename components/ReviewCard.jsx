@@ -4,8 +4,8 @@ export default function ReviewCard({reviewProp}) {
 
     return (
         <>
-            <div class="review-card">
-                <div class="review-content">
+            <div className="review-card">
+                <div className="review-content">
                     <p>{vote}</p>
                     <p>{name}</p>
                     <p>{text}</p>
