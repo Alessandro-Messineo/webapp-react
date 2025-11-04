@@ -15,13 +15,13 @@ export default function HomePage() {
     const [movies, setMovies] = useState([]);
 
     // funzione per la chiamata axios
-    const fecthBooks = () => {
-        axios.get('http://localhost:3001/api/books')
+    const fecthMovies = () => {
+        axios.get('http://localhost:3001/api/movies')
             .then(response => { setMovies(response.data) })
             .catch(error => { console.log(error) })
     }
 
-    useEffect(fecthBooks, []);
+    useEffect(fecthMovies, []);
 
     return (
         <>
