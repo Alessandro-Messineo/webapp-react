@@ -1,6 +1,6 @@
 import './HomePage.css'
 
-//importo filmCard
+//importo MovieCard
 import MoviesCard from '../components/MoviesCard';
 
 // importo axios
@@ -26,8 +26,8 @@ export default function HomePage() {
     return (
         <>
             <div className="bg-pages">
-                <h1 class="page-title">Lista Film</h1>
-                <div class="film-list">
+                <h1 className="page-title">Lista Film</h1>
+                <div className="film-list">
                     {movies.map((movie) => (
                         <MoviesCard
                             key={movie.id}

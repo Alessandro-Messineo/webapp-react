@@ -7,7 +7,7 @@ export default function MoviesCard({ movieProp }) {
 
     return (
         <>
-            <div class="film-card">
+            <div className="film-card">
                 <p>{id}</p>
                 <p>{title}</p>
                 <p>{image}</p>
