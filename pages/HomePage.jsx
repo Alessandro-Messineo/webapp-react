@@ -1,21 +1,40 @@
 import './HomePage.css'
 
+//importo filmCard
+import MoviesCard from '../components/MoviesCard';
+
+// importo axios
+import axios from 'axios'
+
+// importo state e effect
+import { useState, useEffect } from "react"
+
 export default function HomePage() {
+
+    // variabile di stato dei film
+    const [movies, setMovies] = useState([]);
+
+    // funzione per la chiamata axios
+    const fecthBooks = () => {
+        axios.get('http://localhost:3001/api/books')
+            .then(response => { setMovies(response.data) })
+            .catch(error => { console.log(error) })
+    }
+
+    useEffect(fecthBooks, []);
+
     return (
         <>
             <div className="bg-pages">
                 <h1 class="page-title">Lista Film</h1>
-
                 <div class="film-list">
-                    <div class="film-card">
-                        <p>Titolo del Film</p>
-                    </div>
-                    <div class="film-card">
-                        <p>Altro Film</p>
-                    </div>
-                    <div class="film-card">
-                        <p>Ancora un Film</p>
-                    </div>
+                    {movies.map((movie) => (
+                        <MoviesCard
+                            key={movie.id}
+                            movieProp={movie}
+                        />
+                    ))
+                    }
                 </div>
             </div>
         </>
