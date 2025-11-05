@@ -2,6 +2,8 @@ import './FilmPage.css'
 
 // importo ReviewCard
 import ReviewCard from '../components/ReviewCard'
+// importo ReviewForm
+import ReviewForm from '../components/ReviewForm'
 
 // importo axios
 import axios from 'axios'
@@ -46,6 +48,10 @@ export default function FilmPage() {
                             reviewProp={review}
                         />
                     ))}
+                </div>
+
+                <div>
+                    <ReviewForm />
                 </div>
             </div>
         </>
