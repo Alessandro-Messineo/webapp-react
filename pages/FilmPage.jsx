@@ -51,7 +51,7 @@ export default function FilmPage() {
                 </div>
 
                 <div>
-                    <ReviewForm />
+                    <ReviewForm idProp={id} reloadReviews={fecthMovie} />
                 </div>
             </div>
         </>

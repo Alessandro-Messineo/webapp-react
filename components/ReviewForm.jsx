@@ -1,9 +1,11 @@
+// import axios
+import axios from "axios";
 
 // importo state react
 import { useState } from "react"
 
 
-export default function ReviewForm() {
+export default function ReviewForm({ idProp, reloadReviews }) {
 
     // settiamo valore iniziale dell'oggetto dei campi form
     const initialValues = {
@@ -19,6 +21,22 @@ export default function ReviewForm() {
     const setFieldValue = e => {
         const { value, name } = e.target;
         setFormData({ ...formData, [name]: value })
+    }
+
+    // creiamo la url
+    const apiUrl = `http://localhost:3001/api/movies/${idProp}/reviews`;
+
+    // funzione invio dati
+    const handleSubmit = e => {
+        // preveniamo invio form
+        e.preventDefault();
+        // chiamata per store review
+        axios.post(apiUrl, formData, { headers: { 'Content-Type': 'application/json' } })
+            .then(() => {
+                setFormData(initialValues)
+                reloadReviews();
+            })
+            .catch((err) => console.log(err))
     }
 
     return (
