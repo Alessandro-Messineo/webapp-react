@@ -1,9 +1,26 @@
 
+// importo state react
+import { useState } from "react"
 
 
 export default function ReviewForm() {
 
-    
+    // settiamo valore iniziale dell'oggetto dei campi form
+    const initialValues = {
+        name: "Anonymous",
+        text: "",
+        vote: 1
+    }
+
+    // variabile di stato del form
+    const [formData, setFormData] = useState(initialValues);
+
+    // funzione di gestione valori dei campi
+    const setFieldValue = e => {
+        const { value, name } = e.target;
+        setFormData({ ...formData, [name]: value })
+    }
+
     return (
         <div >
             <header >
