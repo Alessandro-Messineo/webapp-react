@@ -14,7 +14,13 @@ import { useState, useEffect } from "react"
 // importo params
 import { useParams } from "react-router-dom"
 
+// import hook per contesto
+import { useGlobal } from '../contexts/GlobalContext';
+
 export default function FilmPage() {
+
+    // etrapoliamo da context var di stato
+    const { setIsLoading } = useGlobal();
 
     // variabile di stato del film
     const [movie, setMovie] = useState();
@@ -27,6 +33,7 @@ export default function FilmPage() {
         axios.get('http://localhost:3001/api/movies/' + id)
             .then(response => { setMovie(response.data) })
             .catch(error => { console.log(error) })
+            .finally(() => { setIsLoading(false) })
     }
 
     useEffect(fecthMovie, [id]);

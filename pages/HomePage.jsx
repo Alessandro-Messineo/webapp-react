@@ -9,7 +9,13 @@ import axios from 'axios'
 // importo state e effect
 import { useState, useEffect } from "react"
 
+// import hook per contesto
+import { useGlobal } from '../contexts/GlobalContext';
+
 export default function HomePage() {
+
+    // etrapoliamo da context var di stato
+    const { setIsLoading } = useGlobal();
 
     // variabile di stato dei film
     const [movies, setMovies] = useState([]);
@@ -19,6 +25,7 @@ export default function HomePage() {
         axios.get('http://localhost:3001/api/movies')
             .then(response => { setMovies(response.data) })
             .catch(error => { console.log(error) })
+            .finally(() => { setIsLoading(false) })
     }
 
     useEffect(fecthMovies, []);
